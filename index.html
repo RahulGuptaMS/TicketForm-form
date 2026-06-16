@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tatkal Ticket Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ===== HEADER ===== -->
+  <div class="form-header">
+    <div class="train-icon">🚆</div>
+    <div>
+      <h1>Tatkal Ticket Booking</h1>
+      <p>Fill the form — we will process your booking and contact you shortly</p>
+      <span class="badge">⚡ Tatkal &amp; Government Forms</span>
+    </div>
+  </div>
+
+  <!-- ===== PASSENGER DETAILS ===== -->
+  <div class="section-card">
+    <p class="section-title">👤 Passenger Details</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Full Name <span class="required">*</span></label>
+        <input type="text" id="name" placeholder="As on Aadhaar Card" />
+      </div>
+      <div class="field">
+        <label>Age <span class="required">*</span></label>
+        <input type="number" id="age" placeholder="e.g. 28" min="1" max="120" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Date of Birth <span class="required">*</span></label>
+        <input type="date" id="dob" />
+      </div>
+      <div class="field">
+        <label>Mobile Number <span class="required">*</span></label>
+        <input type="tel" id="mobile" placeholder="10-digit number" maxlength="10" />
+      </div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field">
+        <label>Aadhaar Number <span class="required">*</span></label>
+        <input type="text" id="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== JOURNEY DETAILS ===== -->
+  <div class="section-card">
+    <p class="section-title">🛤️ Journey Details</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label>From (Source Station) <span class="required">*</span></label>
+        <input type="text" id="from" placeholder="e.g. Patna Jn (PNBE)" />
+      </div>
+      <div class="field">
+        <label>To (Destination Station) <span class="required">*</span></label>
+        <input type="text" id="to" placeholder="e.g. New Delhi (NDLS)" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Date of Journey <span class="required">*</span></label>
+        <input type="date" id="journeyDate" />
+      </div>
+      <div class="field">
+        <label>Train Number / Name <span class="required">*</span></label>
+        <input type="text" id="train" placeholder="e.g. 12310 / Rajdhani Exp" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CLASS SELECTION ===== -->
+  <div class="section-card">
+    <p class="section-title">💺 Select Class</p>
+    <div class="class-selector">
+      <div class="class-btn selected" id="btn-3AC" onclick="selectClass('3AC')">
+        3AC
+        <span class="charge">+ ₹350 Tatkal Charge</span>
+      </div>
+      <div class="class-btn" id="btn-SL" onclick="selectClass('SL')">
+        Sleeper (SL)
+        <span class="charge">+ ₹400 Tatkal Charge</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRICE INFO ===== -->
+  <div class="price-info">
+    <div class="price-row header">
+      <span>Our Tatkal Service Charge</span>
+      <span id="charge-amount">₹350 extra</span>
+    </div>
+    <div class="price-row">
+      <span>Class Selected</span>
+      <span id="class-label">3AC</span>
+    </div>
+    <div class="price-row">
+      <span>IRCTC Ticket Price</span>
+      <span>Paid separately on IRCTC</span>
+    </div>
+  </div>
+
+  <!-- ===== REFUND NOTE ===== -->
+  <div class="refund-note">
+    <span class="refund-icon">🔒</span>
+    <div>
+      <strong>100% Refund Guarantee</strong>
+      If your Tatkal ticket is <u>not confirmed</u>, your complete payment will be
+      refunded within <strong>1 to 2 hours</strong>. No questions asked.
+    </div>
+  </div>
+
+  <!-- ===== SUBMIT BUTTON ===== -->
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.857L.036 23.507a.5.5 0 0 0 .617.61l5.79-1.516A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.027-1.376l-.36-.214-3.735.979.997-3.648-.235-.374A9.818 9.818 0 1 1 12 21.818z"/>
+    </svg>
+    Send Booking Request on WhatsApp
+  </button>
+
+  <!-- ===== SUCCESS MESSAGE ===== -->
+  <div class="success-msg" id="success-msg">
+    ✅ Request Submitted! We will contact you on your mobile number to confirm your booking.
+  </div>
+
+  <div class="footer">
+    Powered by <span>Tatkal Ticket &amp; Government Form Service</span>
+  </div>
+
+</div><!-- end page-wrapper -->
+
+<script>
+  let selectedClass = '3AC';
+
+  function selectClass(cls) {
+    selectedClass = cls;
+    document.querySelectorAll('.class-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('btn-' + cls).classList.add('selected');
+    document.getElementById('charge-amount').textContent = cls === '3AC' ? '₹350 extra' : '₹400 extra';
+    document.getElementById('class-label').textContent = cls;
+  }
+
+  /* Auto-format Aadhaar as XXXX XXXX XXXX */
+  document.getElementById('aadhaar').addEventListener('input', function () {
+    this.value = this.value
+      .replace(/\D/g, '')
+      .replace(/(\d{4})(?=\d)/g, '$1 ')
+      .trim()
+      .slice(0, 14);
+  });
+
+  /* Only digits for mobile */
+  document.getElementById('mobile').addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+
+  function submitForm() {
+    const name        = document.getElementById('name').value.trim();
+    const age         = document.getElementById('age').value.trim();
+    const dob         = document.getElementById('dob').value;
+    const mobile      = document.getElementById('mobile').value.trim();
+    const aadhaar     = document.getElementById('aadhaar').value.trim();
+    const from        = document.getElementById('from').value.trim();
+    const to          = document.getElementById('to').value.trim();
+    const journeyDate = document.getElementById('journeyDate').value;
+    const train       = document.getElementById('train').value.trim();
+
+    if (!name || !age || !dob || !mobile || !aadhaar || !from || !to || !journeyDate || !train) {
+      alert('⚠️ Please fill all required fields before submitting.');
+      return;
+    }
+    if (mobile.length !== 10) {
+      alert('⚠️ Please enter a valid 10-digit mobile number.');
+      return;
+    }
+
+    const charge = selectedClass === '3AC' ? 'Rs.350' : 'Rs.400';
+
+    const msg =
+`🚆 *New Tatkal Booking Request*
+
+👤 *Passenger Details*
+• Name: ${name}
+• Age: ${age}
+• Date of Birth: ${dob}
+• Mobile: ${mobile}
+• Aadhaar: ${aadhaar}
+
+🛤️ *Journey Details*
+• From: ${from}
+• To: ${to}
+• Date of Journey: ${journeyDate}
+• Train: ${train}
+• Class: ${selectedClass}
+• Tatkal Charge: ${charge} extra
+
+📋 Please process this Tatkal booking. Thank you!`;
+
+    const n = atob('OTE3NjM0OTAyMDY2');
+    window.open('https://wa.me/' + n + '?text=' + encodeURIComponent(msg), '_blank');
+
+    document.getElementById('success-msg').style.display = 'block';
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '✅ Request Submitted Successfully!';
+    btn.style.background = 'linear-gradient(135deg, #0f4525, #0d3d20)';
+    btn.style.boxShadow = 'none';
+    btn.style.cursor = 'default';
+    btn.onclick = null;
+  }
+</script>
+
+</body>
+</html>
